@@ -1,0 +1,9 @@
+package com.lee.spi_02.bdy;
+
+public class BaseDataType {
+	public static void main(String[] args) {
+		int a = 7;  // 4×Ö½Ú
+		Integer aa = 7;
+		System.out.println("Integer: " + aa.SIZE / 8 + "bytes");
+	}
+}

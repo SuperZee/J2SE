@@ -1,0 +1,10 @@
+package com.lee.spi_02.bdy;
+
+public class BaseDataType {
+	public static void main(String[] args) {
+		int a = 7;  // 4×Ö½Ú
+		System.out.println("Integer: " + Integer.SIZE / 8 + "bytes");
+		System.out.println("Double: " + Double.SIZE / 8 + "bytes");
+		System.out.println("C: " + Character.BYTES);
+	}
+}
