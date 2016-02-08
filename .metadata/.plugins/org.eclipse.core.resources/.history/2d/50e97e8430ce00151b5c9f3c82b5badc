@@ -13,10 +13,8 @@ public class ReadUserInput {
 		// 从控制台读取一行数据
 		try {
 			// 读取第一个数
-			System.out.println("请输入第一个数");
 			String s1 = br.readLine();
 			// 读取第二个数
-			System.out.println("请输入第二个数");
 			String s2 = br.readLine();
 			// 把String转换成float
 			float f1 = Float.valueOf(s1);
@@ -37,18 +35,6 @@ public class ReadUserInput {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
-		// 逻辑运算符
-		System.out.println("--- 逻辑运算符 ---");
-		if(3 > 2 && 5 > 2){
-			System.out.println("3大于2 并且 5也大于2");
-		}
-		if(3 > 2 || 4 < 2){
-			System.out.println("3大于2 或者 4小于2");
-		}
-		if( !(3  < 2)){
-			System.out.println("非 3 < 2");
 		}
 	}
 }

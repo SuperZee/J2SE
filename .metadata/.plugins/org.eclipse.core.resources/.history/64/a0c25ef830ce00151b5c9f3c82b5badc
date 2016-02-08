@@ -45,10 +45,7 @@ public class ReadUserInput {
 			System.out.println("3大于2 并且 5也大于2");
 		}
 		if(3 > 2 || 4 < 2){
-			System.out.println("3大于2 或者 4小于2");
-		}
-		if( !(3  < 2)){
-			System.out.println("非 3 < 2");
+			System.out.println("3大于2或者4小于2");
 		}
 	}
 }
