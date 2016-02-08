@@ -1,0 +1,14 @@
+package com.lee.spi_04.process_control;
+
+public class ProcessControl {
+	public static void main(String[] args) {
+		int a = 10;
+		if( a > 10){
+			System.out.println("a 大于 10");
+		}else if(a == 10){
+			System.out.println("a 等于 10");
+		}else{
+			System.out.println("a 小与 10");
+		}
+	}
+}

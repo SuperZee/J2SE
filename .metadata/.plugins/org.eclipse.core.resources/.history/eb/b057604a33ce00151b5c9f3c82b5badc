@@ -1,0 +1,28 @@
+package com.lee.spi_04.process_control;
+
+public class ProcessControl {
+	public static void main(String[] args) {
+		int a = 10;
+		// 流程控制语句
+		if (a > 10) {
+			System.out.println("a 大于 10");
+		} else if (a == 10) {
+			System.out.println("a 等于 10");
+		} else {
+			System.out.println("a 小与 10");
+		} 
+		int color = Color.星期一;
+		switch (color) {
+		case value:
+			
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+    public enum Color{  
+        星期日,星期一,星期二,星期三,星期四,星期五,星期六;
+    }  
+}
