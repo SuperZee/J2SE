@@ -52,7 +52,6 @@ public class ProcessControl {
 			System.out.println(arr);
 		}
 		System.out.println("----------------");
-		// whileÑ­»·
 		while(true){
 			if(a++ > 15){break;}
 			System.out.println(a);
