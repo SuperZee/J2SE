@@ -22,6 +22,5 @@ public class BaseDataType {
 		System.out.println("a:7 + 3.0 = " + (a + 3.0));
 		System.out.println("---¶ªÊ§¾«¶È---");
 		System.out.println("a:7 + 3.5 = " + (int) (a + 3.5));
-		
 	}
 }

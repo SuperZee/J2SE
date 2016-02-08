@@ -1,0 +1,8 @@
+package com.lee.spi_03.operator;
+
+public class Operator {
+	public static void main(String[] args) {
+		System.out.println("---È¡Ä£%ÔËËã·û");
+		System.out.println(Integer.valueOf(10) % Integer.valueOf("5"));
+	}
+}
