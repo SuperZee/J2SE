@@ -1,0 +1,20 @@
+package com.lee.spi_04.process_control;
+
+public class Pyramid {
+	// 金字塔的层数
+	final int LAYER = 7;
+	public static void main(String[] args) {
+		/*
+		 * 打印一个金字塔
+		 * 		 8
+		 *      888
+		 * 	   88888
+		 *    8888888
+		 *   888888888
+		 *  88888888888
+		 * 8888888888888
+		 * 
+		 */
+		
+	}
+}
