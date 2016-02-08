@@ -1,0 +1,20 @@
+package com.lee.spi_05.class_object;
+
+public class ObjectDemo {
+	class Person{
+		int age;
+		String name;
+		public Person(){}
+		public void talk(){
+			System.out.println("Talk");
+		}
+	}
+	public static void main(String[] args) {
+		Object p = (Person) new Object();
+		p.age = 18;
+		p.name = "ะกร๗";
+		p.talk();
+	}
+	
+
+}

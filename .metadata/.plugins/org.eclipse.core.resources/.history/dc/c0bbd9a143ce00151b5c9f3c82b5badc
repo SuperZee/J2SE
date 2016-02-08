@@ -1,0 +1,16 @@
+package com.lee.spi_05.class_object;
+
+public class ObjectDemo {
+
+	public static void main(String[] args) {
+		Person p = new Person();
+		p.talk();
+	}	
+	class static Person{
+		int age;
+		String name;
+		public void talk(){
+			System.out.println("Talk");
+		}
+	}
+}
