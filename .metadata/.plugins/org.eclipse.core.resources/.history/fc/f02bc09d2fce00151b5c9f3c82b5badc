@@ -20,7 +20,6 @@ public class ReadUserInput {
 			float f1 = Float.valueOf(s1);
 			float f2 = Float.valueOf(s2);
 			/*
-			 * 拓展Float.parseFloat 和 Float.valueOf 和.floatValue() 的区别 :
 			 * Float.parseFloat(String)表示把String字符串转换成float原始类型的单精度数值,
 			 * 而Float.valueOf(String)是把String字符串转换成float的封装类Float
 			 * 而.floatValue()的作用是把封装类的Float转换成原始类型float. 注意：float是数值，而Float是一个类。
