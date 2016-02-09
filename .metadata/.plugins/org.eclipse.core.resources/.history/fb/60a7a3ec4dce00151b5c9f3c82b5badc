@@ -1,0 +1,13 @@
+package com.lee.spi_05.class_object;
+
+public class ObjectDemo2 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class Person2{
+	int age;
+	String name;
+	Person(){}// 无参构造方法
+}

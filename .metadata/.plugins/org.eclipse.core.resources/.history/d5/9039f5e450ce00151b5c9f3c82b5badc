@@ -1,0 +1,5 @@
+package com.lee.spi_06.this_classmethod;
+
+public class ClassVariable {
+
+}

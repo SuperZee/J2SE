@@ -1,0 +1,20 @@
+package com.lee.spi_06.this_classmethod;
+/*
+ * 类变量  即使公共资源
+ */
+public class ClassVariable {
+	public static void main(String[] args) {
+		
+	}
+	
+}
+
+class Child{
+	int age;
+	String name;
+	public Child(int age, String name) {
+		this.age = age;
+		this.name = name;
+	}
+	
+}

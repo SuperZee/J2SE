@@ -1,0 +1,32 @@
+package com.lee.spi_06.this_classmethod;
+
+/*
+ * 类变量  即使公共资源
+ */
+public class ClassVariable {
+	public static void main(String[] args) {
+		Child child = new Child(3,"小花");
+		child.joinGame();
+		Child child2 = new Child(2,"小明");
+		child2.joinGame();
+		child.joinGame();
+	}
+
+}
+
+class Child {
+	int age;
+	String name;
+	// 定义类变量
+	static int playToyMember;
+
+	public Child(int age, String name) {
+		this.age = age;
+		this.name = name;
+	}
+
+	public void joinGame() {
+		playToyMember++;
+		System.out.println("当前一共有" + playToyMember + "个玩具");
+	}
+}

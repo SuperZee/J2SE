@@ -1,0 +1,21 @@
+package com.lee.spi_06.this_classmethod;
+
+public class ThisDemo {
+	public static void main(String[] args) {
+		Person p = new Person();
+	}
+	
+
+}
+
+class Person{
+	int age;
+	String name;
+	// 私有构造方法 ,调用类不能创建对象
+	private Person(){}
+	public Person(int age,String name){
+		this.age = age;
+		this.name = name;
+	}
+	
+}

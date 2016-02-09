@@ -1,0 +1,11 @@
+package com.lee.spi_06.this_classmethod;
+
+public class ThisDemo {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class Person(){
+	int age;
+}
