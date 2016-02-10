@@ -1,0 +1,17 @@
+package com.lee.spi_14.swing.ex;
+
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JSplitPane;
+
+public class Demo1 extends JFrame{
+	JSplitPane jsp;
+	JList jList;
+	JLabel jl1;
+	public static void main(String[] args) {
+		
+	}
+	
+	public Demo1() {
+	}
+}
