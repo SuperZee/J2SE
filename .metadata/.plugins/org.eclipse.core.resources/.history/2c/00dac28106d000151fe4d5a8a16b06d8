@@ -1,0 +1,31 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+/**
+ * JCheckBox 复选框组件 JRadioButton 单选框组件
+ * 
+ * @author SpiColorPendra
+ *
+ *         注意 : 单选按钮 必须先创建ButtonGroup 把同一组单选框组件放在同一个ButtonGroup里面
+ */
+public class Demo7 extends JFrame {
+	JPanel jp1, jp2, jp3;
+	JLabel jl1, jl2;
+	JButton jb1, jb2;
+	JCheckBox jcb1, jcb2, jcb3;
+	JRadioButton jrb1, jrb2;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo7() {
+
+	}
+}

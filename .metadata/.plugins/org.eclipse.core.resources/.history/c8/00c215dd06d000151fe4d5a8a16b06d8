@@ -1,0 +1,48 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+/**
+ * JCheckBox 复选框组件 JRadioButton 单选框组件
+ * 
+ * @author SpiColorPendra
+ *
+ *         注意 : 单选按钮 必须先创建ButtonGroup 把同一组单选框组件放在同一个ButtonGroup里面
+ */
+public class Demo7 extends JFrame {
+	JPanel jp1, jp2, jp3;
+	JLabel jl1, jl2;
+	JButton jb1, jb2;
+	JCheckBox jcb1, jcb2, jcb3;
+	JRadioButton jrb1, jrb2;
+	// JRadioButton必须放在ButtonGroup中
+	ButtonGroup bg;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo7() {
+		jp1 = new JPanel();
+		jp2 = new JPanel();
+		jp3 = new JPanel();
+		jl1 = new JLabel("你喜欢的运动");
+		jl2 = new JLabel("你的性别");
+		jb1 = new JButton("注册用户");
+		jb2 = new JButton("取消注册");
+		jcb1 = new JCheckBox("足球");
+		jcb1 = new JCheckBox("篮球");
+		jcb1 = new JCheckBox("乒乓球");
+
+		this.setTitle("注册管理");
+		this.setBounds(600, 400, 400, 200);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

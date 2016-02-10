@@ -1,0 +1,10 @@
+package com.lee.spi_13.swing;
+/**
+ * JCheckBox 复选框组件
+ * JRadioButton 单选框组件
+ * @author SpiColorPendra
+ *
+ */
+public class Demo7 {
+
+}

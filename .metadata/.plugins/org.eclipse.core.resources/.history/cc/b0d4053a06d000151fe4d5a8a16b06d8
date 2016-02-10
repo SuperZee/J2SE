@@ -1,0 +1,12 @@
+package com.lee.spi_13.swing;
+
+/**
+ * JCheckBox 复选框组件 JRadioButton 单选框组件
+ * 
+ * @author SpiColorPendra
+ *
+ *注意 : 单选按钮 必须先创建ButtonGroup 把同一组单选框组件放在同一个ButtonGroup里面
+ */
+public class Demo7 {
+
+}
