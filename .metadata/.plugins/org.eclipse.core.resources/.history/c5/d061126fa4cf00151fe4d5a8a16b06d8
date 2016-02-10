@@ -1,0 +1,24 @@
+package com.lee.spi09.abstract_final;
+/**
+ * @version 1.0
+ * @author SpiColorPendra
+ * @
+ */
+public class Demo {
+
+}
+
+/*
+ * 当父类的方法不能被确定的时候
+ * 只能定义一个抽象类,就行Animal类，你并不能确定Animal应该有
+ * 那些行为?那些方法，一个Animal不能实现所有的方法 属性
+ * 但是Animal代表了所有动物的定义
+ */
+
+abstract class Animal{
+	int age;
+	String name;
+	abstract public void eat(){
+		
+	}
+}

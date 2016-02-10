@@ -1,0 +1,14 @@
+package com.lee.spi_10.interface_implements;
+
+public class Demo {
+
+}
+
+/*
+ * 定义一个接口:interface
+ */
+
+interface PhoneTalk{
+	public void call();
+	public void sendMsg();
+}

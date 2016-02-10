@@ -1,0 +1,32 @@
+package com.lee.spi_10.interface_implements;
+/*
+ * 接口如同电脑的USB接口一样，使用之前我并不知道接入的设备是什么
+ * 可能是U盘 可能是手机 我到底是要传数据呢？还是充电呢？
+ * 接口如同一个规范 告诉实现接口的类 你必须实现我的所有方法
+ * 你才能使用我这个接口
+ */
+public class Demo {
+	Phone p = new Phone();
+	p.call();
+}
+
+/*
+ * 定义一个接口:interface
+ */
+
+interface PhoneTalk{
+	public void call();
+	public void sendMsg();
+}
+
+class Phone implements PhoneTalk{
+	@Override
+	public void call() {
+		System.out.println("打电话");
+		
+	}@Override
+	public void sendMsg() {
+		// TODO Auto-generated method stub
+		System.out.println("发短信");
+	}
+}
