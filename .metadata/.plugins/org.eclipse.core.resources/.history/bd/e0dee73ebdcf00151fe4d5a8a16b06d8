@@ -1,0 +1,13 @@
+package com.lee.spi_11.sorfarray;
+
+public class Demo {
+	public static void main(String[] args) {
+		
+	}
+	
+	// ц╟ещеепР
+	public void bufferSort(int arr[]){
+		
+	}
+}
+
