@@ -1,0 +1,40 @@
+package com.lee.spi_09.abstract_final;
+/**
+ * @version 1.0
+ * @author SpiColorPendra
+ * @
+ */
+public class Demo {
+
+}
+
+/*
+ * 当父类的方法不能被确定的时候
+ * 只能定义一个抽象类,就行Animal类，你并不能确定Animal应该有
+ * 那些行为?那些方法，一个Animal不能实现所有的方法 属性
+ * 但是Animal代表了所有动物的定义
+ * 
+ * 抽象类不能实现方法 只能定义， 	当一类子类 如Dog类继承Animal类、
+ * 必须把Animal所有的方法实现
+ */
+
+
+/*
+ * 注意:
+ * 1.抽象类不能被实例化
+ * 2.
+ */
+abstract class Animal{
+	int age;
+	String name;
+	// 定义了一个抽象方法
+	abstract public void eat();
+}
+
+class Dog extends Animal{
+	// 实现父类的eat方法
+	@Override
+	public void eat() {
+		
+	}
+}

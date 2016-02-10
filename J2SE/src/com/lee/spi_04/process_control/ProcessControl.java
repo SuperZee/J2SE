@@ -1,0 +1,63 @@
+package com.lee.spi_04.process_control;
+
+public class ProcessControl {
+	public static void main(String[] args) {
+		int a = 10;
+		// 流程控制语句
+		if (a > 10) {
+			System.out.println("a 大于 10");
+		} else if (a == 10) {
+			System.out.println("a 等于 10");
+		} else {
+			System.out.println("a 小与 10");
+		}
+		// 枚举和Switch流程控制
+		Color color = Color.星期二;
+		switch (color) {
+		case 星期日:
+			System.out.println("星期日");
+			break;
+		case 星期一:
+			System.out.println("星期一");
+			break;
+		case 星期三:
+			System.out.println("星期三");
+			break;
+		case 星期二:
+			System.out.println("星期二");
+			break;
+		case 星期五:
+			System.out.println("星期五");
+			break;
+		case 星期六:
+			System.out.println("星期六");
+			break;
+		case 星期四:
+			System.out.println("星期四");
+			break;
+		default:
+			break;
+		}
+		
+		// for 循环
+		for (int i = 0; i < 10;i++) {
+			System.out.println(i);
+		}
+		// 增强for循环
+		System.out.println("---------------");
+		int[] arrs = {1,3,4,6,8};
+		for (int arr : arrs) {
+			System.out.println(arr);
+		}
+		System.out.println("----------------");
+		// while循环
+		while(true){
+			if(a++ > 15){break;}
+			System.out.println(a);
+		}
+	}
+
+	public enum Color {
+		星期日, 星期一, 星期二, 星期三, 星期四, 星期五, 星期六;
+	}
+}
