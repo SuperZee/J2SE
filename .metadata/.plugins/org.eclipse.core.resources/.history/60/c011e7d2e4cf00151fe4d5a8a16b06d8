@@ -1,0 +1,22 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JButton;
+
+/**
+ * 流式布局
+ * 
+ * @author SpiColorPendra
+ *
+ */
+public class Demo3 {
+	JButton jb1, jb2, jb3, jb4 = null;
+	public static void main(String[] args) {
+		
+	}
+
+	public Demo3() {
+		jb1 = new JButton("张飞");
+		jb2 = new JButton("关于");
+		jb3
+	}
+}
