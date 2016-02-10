@@ -1,0 +1,21 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JFrame;
+
+/**
+ * JTextField  JPasswordField JLabel 
+ * @author SpiColorPendra
+ *
+ */
+
+
+public class Demo6 extends JFrame{
+	//定义组件
+	public static void main(String[] args) {
+		
+	}
+	
+	public Demo6() {
+		// TODO Auto-generated constructor stub
+	}
+}

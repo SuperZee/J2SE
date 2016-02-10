@@ -1,0 +1,30 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+/**
+ * JTextField JPasswordField JLabel
+ * 
+ * @author SpiColorPendra
+ *
+ */
+
+public class Demo6 extends JFrame {
+	// 定义组件
+	JTextField jt1, jt2;
+	JPasswordField jpsw;
+	JLabel jl1,jl2;
+	JButton jb1, jb2;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo6() {
+		// TODO Auto-generated constructor stub
+	}
+}

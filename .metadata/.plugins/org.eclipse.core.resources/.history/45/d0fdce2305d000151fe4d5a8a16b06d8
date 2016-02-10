@@ -1,0 +1,41 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+/**
+ * JTextField JPasswordField JLabel
+ * 
+ * @author SpiColorPendra
+ *
+ */
+
+public class Demo6 extends JFrame {
+	// 定义组件
+	JPanel jp1, jp2, jp3;
+	JTextField jt1, jt2;
+	JPasswordField jpsw;
+	JLabel jlb1, jlb2;
+	JButton jb1, jb2;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo6() {
+		jp1 = new JPanel();
+		jp2 = new JPanel();
+		jp3 = new JPanel();
+		
+		jlb1 = new JLabel("用户名:");
+		jlb2 = new JLabel("密   码:");
+		
+		jb1 = new JButton("登陆");
+		jb2 = new JButton("取消");
+
+	}
+}
