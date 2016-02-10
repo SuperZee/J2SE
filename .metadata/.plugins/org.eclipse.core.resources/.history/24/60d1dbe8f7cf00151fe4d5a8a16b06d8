@@ -1,0 +1,11 @@
+package com.lee.spi_13.swing;
+
+public class Demo5_JPanel {
+	public static void main(String[] args) {
+		
+	}
+	
+	public Demo5_JPanel(){
+		
+	}
+}

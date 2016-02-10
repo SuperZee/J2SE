@@ -1,0 +1,24 @@
+package com.lee.spi_13.swing;
+
+/**
+ * JPanel 实现一个JFrame多个布局的组合
+ * @author SpiColorPendra
+ *
+ */
+import java.awt.*;
+import javax.swing.*;
+
+public class Demo5_JPanel {
+	// 定义组件
+	JPanel jp1 = new JPanel();
+	JPanel jp2 = new JPanel();
+	JButton jb1, jb2, jb3, jb4, jb5, jb6;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo5_JPanel() {
+
+	}
+}
