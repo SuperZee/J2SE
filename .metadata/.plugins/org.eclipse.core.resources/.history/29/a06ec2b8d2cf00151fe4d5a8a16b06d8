@@ -16,7 +16,7 @@ public class Demo {
 		// 设置窗口标题
 		jf.setTitle("Hello World!");
 		// 设置窗口大小
-		jf.setSize(300,	300);
+		jf.setSize(200,	200);
 		// 设置窗口初始位置
 		jf.setLocation(300, 300);
 		// 显示

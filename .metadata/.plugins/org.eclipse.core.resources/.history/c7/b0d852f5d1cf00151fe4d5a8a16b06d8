@@ -1,0 +1,12 @@
+package com.lee.spi_13.swing;
+
+/**
+ * Swing框架的学习
+ * 功能 : 提供GUI用户界面
+ */
+import javax.swing.JFrame;
+
+public class Demo {
+	// JFrame 是一个顶层容器
+	JFrame j1 = new JFrame();
+}
