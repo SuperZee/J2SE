@@ -1,0 +1,29 @@
+package com.lee.spi_13.swing;
+
+import java.awt.Window;
+
+/**
+ * Swing框架的学习
+ * 功能 : 提供GUI用户界面
+ */
+import javax.swing.JFrame;
+
+public class Demo {
+	// JFrame 是一个顶层容器 可以添加其他组件
+	public static void main(String[] args) {
+		// 创建窗口
+		JFrame jf = new JFrame();
+		// 设置窗口标题
+		jf.setTitle("Hello World!");
+		// 设置窗口大小
+		jf.setSize(300, 300);
+		// 设置窗口初始位置
+		jf.setLocation(300, 300);
+		// 显示
+		jf.setVisible(true);
+		// 设置默认关闭  如果不设置就算关闭了窗口 JVM不会退出
+		// 保证窗口关闭的时候，JVM也推出
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}

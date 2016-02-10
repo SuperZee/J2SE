@@ -7,12 +7,11 @@ import javax.swing.JButton;
  */
 import javax.swing.JFrame;
 
-public class Demo extends JFrame {
+public class Demo extends JFrame{
 	// JFrame 是一个顶层容器 可以添加其他组件
 	JButton jb = null;
-
 	public static void main(String[] args) {
-		Demo d = new Demo();
+		Demo d= new Demo();
 	}
 
 	public Demo() {
@@ -27,6 +26,8 @@ public class Demo extends JFrame {
 		this.setSize(300, 300);
 		// 设置窗口初始位置
 		this.setLocation(300, 300);
+
+
 		// 显示
 		this.setVisible(true);
 		// 设置默认关闭 如果不设置就算关闭了窗口 JVM不会退出
