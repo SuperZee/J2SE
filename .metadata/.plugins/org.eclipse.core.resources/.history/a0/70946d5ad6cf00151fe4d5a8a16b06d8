@@ -1,0 +1,7 @@
+package com.lee.spi_13.swing;
+
+public class Demo2 extends JFrame{
+	public static void main(String[] args) {
+		
+	}
+}

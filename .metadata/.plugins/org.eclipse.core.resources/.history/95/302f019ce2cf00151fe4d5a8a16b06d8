@@ -1,0 +1,29 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+/**
+ * BorderLayout
+ * @author SpiColorPendra
+ *
+ */
+public class Demo2 extends JFrame{
+	JButton jb1 = new JButton("中");
+	JButton jb2 = new JButton("北");
+	JButton jb3 = new JButton("南");
+	JButton jb4 = new JButton("西");
+	JButton jb5 = new JButton("东");
+	public static void main(String[] args) {
+		Demo2 demo2 = new Demo2();
+		
+	}
+	
+	public Demo2(){
+		this.add(jb1);
+		// init
+		this.setTitle("学习布局管理器");
+		this.setBounds(600, 400, 400, 200);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

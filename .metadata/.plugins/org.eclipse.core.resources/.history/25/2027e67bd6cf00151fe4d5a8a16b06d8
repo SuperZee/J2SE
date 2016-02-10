@@ -1,0 +1,16 @@
+package com.lee.spi_13.swing;
+
+import javax.swing.JFrame;
+
+public class Demo2 extends JFrame{
+	public static void main(String[] args) {
+		Demo2 demo2 = new Demo2();
+	}
+	
+	public Demo2(){
+		this.setTitle("学习布局管理器");
+		this.setBounds(600, 400, 400, 200);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
