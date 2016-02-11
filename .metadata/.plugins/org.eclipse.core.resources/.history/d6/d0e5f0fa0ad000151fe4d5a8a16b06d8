@@ -1,0 +1,33 @@
+package com.lee.spi_14.swing.ex;
+
+import javax.swing.JFrame;
+
+/**
+ * qq聊天窗口
+ * @author SpiColorPendra
+ *
+ */
+import javax.swing.*;
+
+public class Demo2 extends JFrame {
+	JTextArea jta;
+	JPanel jp1;
+	JComboBox jcb;
+	JTextField jtf;
+	JButton jb;
+
+	public static void main(String[] args) {
+
+	}
+
+	public Demo2() {
+		jta = new JTextArea();
+		jp1 = new JPanel();
+		String[] chatter = { "马腾", "云马", "李佳" };
+		jcb = new JComboBox(chatter);
+		jtf = new JTextField(10);
+		jb = new JButton("发送");
+		
+		
+	}
+}
