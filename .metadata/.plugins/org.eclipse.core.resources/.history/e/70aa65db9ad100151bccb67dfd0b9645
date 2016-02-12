@@ -20,7 +20,7 @@ public class Shot implements Runnable {
 					y-=2;
 					Thread.sleep(15);
 					// 启动子弹线程
-					System.out.println(this.x + "," + this.y);
+					//System.out.println(this.x + "," + this.y);
 				} else {
 					this.isLive = false;
 					break;

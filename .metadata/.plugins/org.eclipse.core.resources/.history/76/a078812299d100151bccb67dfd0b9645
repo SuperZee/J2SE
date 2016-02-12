@@ -138,7 +138,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	public void hitAirPlant(Shot s, EnemyAirPlant eap) {
 		// 1.判断s是否与eap发生重合
 		// 击中
-		if ((s.x > eap.pointX - 15) && (s.x < eap.pointX + 15) && (s.y > eap.pointY - 25) && (s.y < eap.pointY)) {
+		if (s.x > eap.pointX && s.x < eap.pointX + 15 && s.y > eap.pointY && s.y < eap.pointY + 25) {
 			System.out.println("击中");
 			// 2.击中后 子弹死亡
 			s.isLive = false;

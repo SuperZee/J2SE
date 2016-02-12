@@ -43,16 +43,12 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
 		// 画出敌人的飞机
 		for (int i = 0; i < ets.size(); i++) {
-			EnemyAirPlant eap = ets.get(i);
-			if (eap.isLive) {
-				g.setColor(eap.color);
-				g.drawLine(eap.pointX, eap.pointY, eap.pointX + 15, eap.pointY - 25);
-				g.drawLine(eap.pointX, eap.pointY, eap.pointX - 15, eap.pointY - 25);
-				g.drawLine(eap.pointX - 15, eap.pointY - 25, eap.pointX + 15,
-						eap.pointY - 25);
-				// 画炮管
-				g.drawLine(eap.pointX, eap.pointY + 5, eap.pointX, eap.pointY);
-			}
+			g.setColor(ets.get(i).color);
+			g.drawLine(ets.get(i).pointX, ets.get(i).pointY, ets.get(i).pointX + 15, ets.get(i).pointY - 25);
+			g.drawLine(ets.get(i).pointX, ets.get(i).pointY, ets.get(i).pointX - 15, ets.get(i).pointY - 25);
+			g.drawLine(ets.get(i).pointX - 15, ets.get(i).pointY - 25, ets.get(i).pointX + 15, ets.get(i).pointY - 25);
+			// 画炮管
+			g.drawLine(ets.get(i).pointX, ets.get(i).pointY + 5, ets.get(i).pointX, ets.get(i).pointY);
 		}
 		// 从ss中取出每一颗子弹，画出来
 		for (int i = 0; i < masterP.ss.size(); i++) {
@@ -109,28 +105,10 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		while (true) {
 			try {
 				Thread.sleep(100);
-
+				this.repaint();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			// 判断是否击中
-			for (int i = 0; i < masterP.ss.size(); i++) {
-				// 取出子弹
-				Shot myShot = masterP.ss.get(i);
-				// 判断子弹是否活着
-				if (myShot.isLive) {
-					// 取出每个飞机的坐标
-					for (int j = 0; j < ets.size(); j++) {
-						EnemyAirPlant eap = ets.get(j);
-						// 判断飞机是否活着
-						if (eap.isLive) {
-							this.hitAirPlant(myShot, eap);
-						}
-					}
-				}
-			}
-			// 重绘制
-			this.repaint();
 		}
 	}
 
@@ -138,12 +116,11 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	public void hitAirPlant(Shot s, EnemyAirPlant eap) {
 		// 1.判断s是否与eap发生重合
 		// 击中
-		if ((s.x > eap.pointX - 15) && (s.x < eap.pointX + 15) && (s.y > eap.pointY - 25) && (s.y < eap.pointY)) {
+		if (s.x > eap.pointX && s.x < eap.pointX + 15 && s.y > eap.pointY && s.y < eap.pointY + 25) {
 			System.out.println("击中");
 			// 2.击中后 子弹死亡
-			s.isLive = false;
+			
 			// 3.敌人死亡
-			eap.isLive = false;
 		}
 	}
 
