@@ -58,8 +58,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				// 如果在就创建子弹
 				g.drawRect(mShot.x, mShot.y, 3, 3);
 			}
-			// 如果子弹已经到达边缘 就从ss中删除这颗子弹
-			if (!mShot.isLive) {
+			if(!mShot.isLive){
 				masterP.ss.remove(mShot);
 			}
 		}
@@ -81,7 +80,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 同时最多只能发射5颗子弹
 			if (this.masterP.ss.size() < 3) {
 				this.masterP.shoot();
-
+				
 			}
 			System.out.println("Shoot");
 		}

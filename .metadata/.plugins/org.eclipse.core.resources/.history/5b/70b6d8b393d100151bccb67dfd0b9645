@@ -50,18 +50,10 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 画炮管
 			g.drawLine(ets.get(i).pointX, ets.get(i).pointY + 5, ets.get(i).pointX, ets.get(i).pointY);
 		}
-		// 从ss中取出每一颗子弹，画出来
-		for (int i = 0; i < masterP.ss.size(); i++) {
-			// 判断子弹是否存在 只能画出一颗子弹
-			Shot mShot = masterP.ss.get(i);
-			if (mShot != null && mShot.isLive) {
-				// 如果在就创建子弹
-				g.drawRect(mShot.x, mShot.y, 3, 3);
-			}
-			// 如果子弹已经到达边缘 就从ss中删除这颗子弹
-			if (!mShot.isLive) {
-				masterP.ss.remove(mShot);
-			}
+		// 判断子弹是否存在 只能画出一颗子弹
+		if (this.masterP.s != null) {
+			// 如果在就创建子弹
+			g.drawRect(this.masterP.s.x, this.masterP.s.y, 3, 3);
 		}
 
 	}
@@ -78,11 +70,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		}
 		// 如果按下空格 就可以开火
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			// 同时最多只能发射5颗子弹
-			if (this.masterP.ss.size() < 3) {
-				this.masterP.shoot();
-
-			}
+			this.masterP.shoot();
 			System.out.println("Shoot");
 		}
 

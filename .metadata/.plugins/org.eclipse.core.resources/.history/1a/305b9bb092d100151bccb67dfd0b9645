@@ -1,21 +1,16 @@
 package com.lee.spi_16.airplanegame;
 
 import java.awt.Color;
-import java.util.Vector;
 
 // 这个类实现了 主角的飞机的创建
 public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
 	// Shot s = null;
 	Vector<Shot> ss = new Vector<Shot>();
-	Shot s = null;
 
 	// 发射子弹
 	@Override
 	public void shoot() {
-		// 创建一个子弹
 		s = new Shot(this.pointX, this.pointY - 10);
-		// 把子弹添加到集合中
-		ss.add(s);
 		Thread t = new Thread(s);
 		t.start();
 
