@@ -1,0 +1,28 @@
+package com.lee.spi_15.tankgame;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+/**
+ * Java 绘图原理
+ * 
+ * @author SpiColorPendra
+ *
+ */
+public class Demo {
+
+}
+
+// 定义一个面板
+class MyPanle extends JPanel {
+	// 覆盖JPanel的paint方法
+	// Graphics 是绘图的重要类
+	@Override
+	public void paint(Graphics g) {
+		// 调用父类函数完成初始化
+		super.paint(g);
+		// 画一个圆
+		g.drawOval(10, 10, 30, 30);
+	}
+}

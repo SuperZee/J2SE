@@ -1,0 +1,17 @@
+package com.lee.spi_15.tankgame;
+
+import javax.swing.JPanel;
+
+/**
+ * Java 绘图原理
+ * @author SpiColorPendra
+ *
+ */
+public class Demo{
+
+}
+
+// 定义一个面板
+class MyPanle extends JPanel{
+	
+}
