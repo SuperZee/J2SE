@@ -1,0 +1,18 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Color;
+
+public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant {
+	
+	@Override
+	public void shoot() {
+		
+	}
+	
+	public EnemyAirPlant(int x,int y) {
+		this.pointX = x;
+		this.pointY = y;
+		this.color = Color.RED;
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.lee.spi_16.airplanegame;
+
+/**
+ * 做一个飞机大战的游戏. 游戏很简单,有一个飞机可以上下左右移动
+ * 可以发射子弹  地方的飞机从上方出现 随机出现 然后固定发射子弹 
+ * 子弹的方向是竖直向下.
+ * 随着时间的增加 子弹速度会越来越快,子弹的密度也会增加,
+ * 
+ * 分数统计功能: 打死一个地方飞机 得分xxx分
+ * 一个界面最多同时又
+ */
+import javax.swing.JFrame;
+
+public class Main extends JFrame {
+	// 主面板
+	MainPanel mp = null;
+	public static void main(String[] args) {
+		Main m = new Main();
+	}
+
+	public Main() {
+		// 创建主面板
+		mp = new MainPanel();
+		this.add(mp);
+		// 注册监听
+		this.addKeyListener(mp);
+
+		this.setSize(300, 500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+	}
+
+}

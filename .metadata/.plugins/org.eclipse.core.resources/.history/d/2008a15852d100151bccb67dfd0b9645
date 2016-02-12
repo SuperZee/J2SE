@@ -1,0 +1,30 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+// 这个类实现了 主角的飞机的创建
+public class MasterPlant extends AirPlant {
+	JPanel jp = null;
+
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public MasterPlant(int x, int y, int w, int h) {
+		this.pointX = x;
+		this.pointY = y;
+		this.width = w;
+		this.height h;
+	}
+
+	// 重写父类paint函数
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+	}
+
+}

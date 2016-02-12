@@ -1,0 +1,30 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Color;
+
+// 这个类实现了 主角的飞机的创建
+public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
+	@Override
+	public void shoot() {
+
+	}
+
+	// 构造函数给成员变量赋值
+	public MasterPlant(int x, int y) {
+		this.pointX = x;
+		this.pointY = y;
+		this.color = Color.CYAN;
+	}
+
+	public void drawPlant() {
+		// 设置机体颜色
+		g.setColor(masterP.color);
+		// 画机体的三角形
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX - 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX - 15, masterP.pointY + 25, masterP.pointX + 15, masterP.pointY + 25);
+		// 画出炮管
+		g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
+	}
+
+}

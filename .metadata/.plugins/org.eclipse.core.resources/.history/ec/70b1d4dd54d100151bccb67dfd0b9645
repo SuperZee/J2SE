@@ -1,0 +1,7 @@
+package com.lee.spi_16.airplanegame;
+
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel{
+
+}

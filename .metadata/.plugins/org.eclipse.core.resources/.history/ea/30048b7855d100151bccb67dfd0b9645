@@ -1,0 +1,23 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel {
+	MasterPlant masterP;
+
+	public MainPanel() {
+		masterP = new MasterPlant(100, 100, 15, 50);
+	}
+
+	// 重写父类paint函数
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		// 设置机体颜色 画一个实心矩形(机干部分)
+		g.setColor(Color.CYAN);
+		g.fillRect(masterP.pointX, masterP.pointY, masterP.width, masterP.height);
+	}
+}

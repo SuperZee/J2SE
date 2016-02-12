@@ -1,0 +1,55 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel implements KeyListener {
+	MasterPlant masterP;
+
+	public MainPanel() {
+		// 设置主角飞机初始位置 长宽
+		masterP = new MasterPlant(135, 430);
+	}
+
+	// 重写父类paint函数
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+
+		// 设置机体颜色
+		g.setColor(Color.CYAN);
+		// 画机体的三角形
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX - 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX - 15, masterP.pointY + 25, masterP.pointX + 15, masterP.pointY + 25);
+		// 画出炮管
+		g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
+	}
+
+	// 实现键盘监听接口  用户输入左右方向键 飞机可以移动  
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_D){
+			System.out.println("D");
+			masterP.pointX++;
+		}
+		
+		// 必须重新绘制窗口
+		this.repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+}

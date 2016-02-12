@@ -1,0 +1,11 @@
+package com.lee.spi_16.airplanegame;
+
+public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant {
+
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

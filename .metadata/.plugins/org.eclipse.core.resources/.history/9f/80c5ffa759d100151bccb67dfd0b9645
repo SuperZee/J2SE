@@ -1,0 +1,25 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+// 这个类实现了 主角的飞机的创建
+public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant,ActionListener {
+	@Override
+	public void shoot() {
+
+	}
+
+	// 构造函数给成员变量赋值
+	public MasterPlant(int x, int y) {
+		this.pointX = x;
+		this.pointY = y;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

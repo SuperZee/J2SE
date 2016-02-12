@@ -1,0 +1,13 @@
+package com.lee.spi_16.airplanegame;
+
+import javax.swing.JPanel;
+
+public abstract class AbstractAirPlant extends JPanel{
+	int pointX;
+	int pointY;
+	int width;
+	int height;
+	// 飞机移动速度
+	int speed = 3;
+
+}

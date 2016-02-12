@@ -1,0 +1,28 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel {
+	MasterPlant masterP;
+
+	public MainPanel() {
+		// 设置主角飞机初始位置 长宽
+		masterP = new MasterPlant(135, 430);
+	}
+
+	// 重写父类paint函数
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+
+		// 设置机体颜色
+		g.setColor(Color.CYAN);
+		// 画机体的三角形
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
+		
+	}
+}

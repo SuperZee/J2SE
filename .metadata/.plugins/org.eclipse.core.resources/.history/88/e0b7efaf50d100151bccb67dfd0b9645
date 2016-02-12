@@ -1,0 +1,15 @@
+package com.lee.spi_16.airplanegame;
+
+import javax.swing.JPanel;
+
+public abstract class AirPlant extends JPanel {
+	/**
+	 * 这是一个所有飞机的抽象类 这个类定义了飞机的基本属性 如:坐标系,长宽高
+	 */
+	int pointX;
+	int pointY;
+	int width;
+	int height;
+
+	public abstract AirPlant createAirPlant();
+}

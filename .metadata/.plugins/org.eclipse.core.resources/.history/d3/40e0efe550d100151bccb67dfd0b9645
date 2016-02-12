@@ -1,0 +1,21 @@
+package com.lee.spi_16.airplanegame;
+
+// 这个类实现了 主角的飞机的创建
+public class MasterPlant extends AirPlant {
+
+	@Override
+	public AirPlant createAirPlant() {
+
+		return null;
+	}
+
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+
+	}
+	// 构造函数,创建飞机使用的(x,y)坐标系  飞机的体型(w,h)
+	public MasterPlant(int x, int y, int w, int h) {
+		
+	}
+}
