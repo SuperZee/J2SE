@@ -9,10 +9,16 @@ public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
 	// 发射子弹
 	@Override
 	public void shoot() {
-		s = new Shot(this.pointX, this.pointY - 10);
-		Thread t = new Thread(s);
-		t.start();
-		
+		try {
+			Thread.sleep(10);
+			s = new Shot(this.pointX, this.pointY - 10);
+			// 启动子弹线程
+			Thread t = new Thread(s);
+			t.start();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

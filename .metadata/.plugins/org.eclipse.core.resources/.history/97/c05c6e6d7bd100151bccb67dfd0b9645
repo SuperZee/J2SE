@@ -1,0 +1,28 @@
+package com.lee.spi_16.airplanegame;
+
+public class Shot implements Runnable {
+	int x;
+	int y;
+
+	public Shot(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			try {
+				y--;
+				Thread.sleep(20);	
+				// 启动子弹线程
+				System.out.println(this.x + "," + this.y);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+		}
+	}
+
+}

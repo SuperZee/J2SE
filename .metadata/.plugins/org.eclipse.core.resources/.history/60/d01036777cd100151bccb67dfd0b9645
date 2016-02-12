@@ -18,15 +18,13 @@ public class Main extends JFrame {
 	MainPanel mp = null;
 	public static void main(String[] args) {
 		Main m = new Main();
-
+		Thread t = new Thread();
+		t.start(mp);
 	}
 
 	public Main() {
 		// 创建主面板
 		mp = new MainPanel();
-		// 启动mp线程
-		Thread t = new Thread(mp);
-		t.start();
 		this.add(mp);
 		// 必须注册监听
 		this.addKeyListener(mp);

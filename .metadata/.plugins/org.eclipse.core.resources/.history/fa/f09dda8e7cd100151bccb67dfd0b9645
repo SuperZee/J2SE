@@ -9,7 +9,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-public class MainPanel extends JPanel implements KeyListener, Runnable {
+public class MainPanel extends JPanel implements KeyListener,Runnable{
 	// 定义主角飞机
 	MasterPlant masterP;
 	// 定义敌人飞机组 线程安全组
@@ -18,7 +18,6 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	int etsNum = 3;
 
 	public MainPanel() {
-
 		// 设置主角飞机初始位置 长宽
 		this.setBackground(Color.BLACK);
 		masterP = new MasterPlant(135, 430);
@@ -50,8 +49,8 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 画炮管
 			g.drawLine(ets.get(i).pointX, ets.get(i).pointY + 5, ets.get(i).pointX, ets.get(i).pointY);
 		}
-		// 判断子弹是否存在
-		if (this.masterP.s != null) {
+		//判断子弹是否存在
+		if(this.masterP.s != null){
 			// 如果在就创建子弹
 			g.drawRect(this.masterP.s.x, this.masterP.s.y, 3, 3);
 		}
@@ -87,17 +86,15 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	public void keyTyped(KeyEvent e) {
 
 	}
-
 	@Override
 	public void run() {
-		while (true) {
-			try {
-				Thread.sleep(100);
-				this.repaint();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			Thread.sleep(100);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
+	
+	
 
 }

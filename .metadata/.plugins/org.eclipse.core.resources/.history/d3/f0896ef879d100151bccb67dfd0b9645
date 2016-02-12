@@ -10,10 +10,9 @@ public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
 	@Override
 	public void shoot() {
 		s = new Shot(this.pointX, this.pointY - 10);
+		// 启动子弹线程
 		Thread t = new Thread(s);
 		t.start();
-		
-
 	}
 
 	// 构造函数给成员变量赋值

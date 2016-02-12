@@ -24,11 +24,10 @@ public class Main extends JFrame {
 	public Main() {
 		// 创建主面板
 		mp = new MainPanel();
-		// 启动mp线程
-		Thread t = new Thread(mp);
-		t.start();
 		this.add(mp);
 		// 必须注册监听
+		Thread t = new Thread();
+		t.start(mp);
 		this.addKeyListener(mp);
 		
 		this.setSize(300, 500);

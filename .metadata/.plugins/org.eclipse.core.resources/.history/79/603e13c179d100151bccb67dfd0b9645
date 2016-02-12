@@ -12,8 +12,6 @@ public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
 		s = new Shot(this.pointX, this.pointY - 10);
 		Thread t = new Thread(s);
 		t.start();
-		
-
 	}
 
 	// 构造函数给成员变量赋值

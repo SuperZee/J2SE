@@ -1,0 +1,11 @@
+package com.lee.spi_16.airplanegame;
+
+public class Shot implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
