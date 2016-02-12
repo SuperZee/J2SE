@@ -1,0 +1,9 @@
+package com.lee.spi_15.tankgame;
+/**
+ * @version 1.0
+ * @author SpiColorPendra
+ *
+ */
+public class MyTankGame {
+
+}

@@ -1,0 +1,78 @@
+package com.lee.spi_15.tankgame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+/**
+ * @version 1.0
+ * @author SpiColorPendra
+ *
+ */
+public class MyTankGame extends JFrame {
+	public static void main(String[] args) {
+
+	}
+
+	public MyTankGame() {
+
+	}
+}
+
+// 我的面板
+class MyPanel extends JPanel {
+	// 定义一个我的tank
+	Hero hero = null;
+
+	// 构造函数
+	public MyPanel() {
+		hero = new Hero(10, 10);
+	}
+
+	// 绘制tank
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		// 1.画出左边的j矩形
+		g.setColor(Color.YELLOW);
+	}
+
+}
+
+// 坦克类
+class Tank {
+	// 表示tank的横坐标
+	int x = 0;
+	// 表示tank的纵坐标
+	int y = 0;
+
+	public Tank(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+}
+
+class Hero extends Tank {
+	public Hero(int x, int y) {
+		super(x, y);
+	}
+}

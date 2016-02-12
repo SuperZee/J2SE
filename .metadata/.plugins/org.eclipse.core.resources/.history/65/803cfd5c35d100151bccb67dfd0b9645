@@ -13,14 +13,14 @@ import javax.swing.JPanel;
  *
  */
 public class Demo extends JFrame {
-	MyPanle2 mp = null;
+	MyPanle mp = null;
 
 	public static void main(String[] args) {
 		Demo d = new Demo();
 	}
 
 	public Demo() {
-		mp = new MyPanle2();
+		mp = new MyPanle();
 		this.add(mp);
 
 		this.setSize(400, 300);
@@ -30,7 +30,7 @@ public class Demo extends JFrame {
 }
 
 // 定义一个面板
-class MyPanle2 extends JPanel {
+class MyPanle extends JPanel {
 	// 覆盖JPanel的paint方法
 	// Graphics 是绘图的重要类
 	// paint 绘制组件外观
