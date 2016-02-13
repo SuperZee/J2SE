@@ -14,6 +14,7 @@ public class MasterPlant extends AbstractAirPlant implements InterfaceAirPlant {
 	public void shoot() {
 		// 创建一个子弹
 		s = new Shot(this.pointX, this.pointY - 10);
+		s.isOfMaster = true;
 		// 把子弹添加到集合中
 		ss.add(s);
 		Thread t = new Thread(s);

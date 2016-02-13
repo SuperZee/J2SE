@@ -17,7 +17,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	// 定义敌人飞机组 线程安全组
 	Vector<EnemyAirPlant> ets = new Vector<EnemyAirPlant>();
 	// 定义了敌人飞机数量
-	int etsNum = 3;
+	int etsNum = 4;
 	// 定义炸弹集合
 	Vector<Bomb> bombs = new Vector<Bomb>();
 	// 定义三张爆炸图片
@@ -32,11 +32,16 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		masterP = new MasterPlant(135, 430);
 		// 初始化敌人飞机
 		for (int i = 0; i < etsNum; i++) {
-			EnemyAirPlant et = new EnemyAirPlant((i + 1) * 70, 35);
+			EnemyAirPlant et = new EnemyAirPlant((i + 1) * 60, 35);
 			ets.add(et);
 			// 启动敌人飞机
 			Thread t = new Thread(et);
 			t.start();
+			// 给敌人加入子弹
+			Shot s = new Shot(et.pointX, et.pointY + 5);
+			et.ss.add(s);
+			Thread t2 = new Thread(s);
+			t2.start();
 		}
 		// 初始化三张图片
 		image1 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_1.gif"));
@@ -66,6 +71,13 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				g.drawLine(eap.pointX - 15, eap.pointY - 25, eap.pointX + 15, eap.pointY - 25);
 				// 画炮管
 				g.drawLine(eap.pointX, eap.pointY + 5, eap.pointX, eap.pointY);
+				for (int j = 0; j < eap.ss.size(); j++) {
+					// 取出子弹
+					Shot enemyShot = eap.ss.get(j);
+					if (enemyShot.isLive) {
+						g.drawRect(enemyShot.x, enemyShot.y, 3, 3);
+					}
+				}
 			}
 		}
 
@@ -150,6 +162,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			for (int i = 0; i < masterP.ss.size(); i++) {
 				// 取出子弹
 				Shot myShot = masterP.ss.get(i);
+				myShot.isOfMaster = true;
 				// 判断子弹是否活着
 				if (myShot.isLive) {
 					// 取出每个飞机的坐标
@@ -162,6 +175,34 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 					}
 				}
 			}
+			// 判断是否需要给敌机加入新子弹
+			// 判断子弹是否失效
+			for (int i = 0; i < ets.size(); i++) {
+				EnemyAirPlant etp = ets.get(i);
+				// 如果飞机还活则Shot mShot = masterP.ss.get(i);
+				if (etp.isLive) {
+					// 如果没有子弹
+					if (etp.ss.size() < 1) {
+						// 添加子弹
+						Shot s = new Shot(etp.pointX, etp.pointY);
+						// 不是主角的子弹
+						s.isOfMaster = false;
+						System.out.println("添加子弹");
+						if (Math.random() * 100 > 80) {
+							etp.ss.add(s);
+							Thread t = new Thread(s);
+							t.start();
+						}
+					} else {
+						if (!etp.ss.get(0).isLive) {
+							etp.ss.remove(0);
+							System.out.println("删除子弹");
+						}
+					}
+
+				}
+			}
+
 			// 重绘制
 			this.repaint();
 		}
@@ -180,7 +221,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			eap.isLive = false;
 			// 4.创建炸弹对象
 			Bomb b = new Bomb(eap.pointX, eap.pointY - 10);
-			// 加入到炸弹集合  第一个不爆炸
+			// 加入到炸弹集合 第一个不爆炸
 			bombs.add(b);
 
 		}

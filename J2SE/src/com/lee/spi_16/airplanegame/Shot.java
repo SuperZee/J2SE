@@ -3,6 +3,8 @@ package com.lee.spi_16.airplanegame;
 public class Shot implements Runnable {
 	int x;
 	int y;
+	// 是否属于主角的子弹
+	boolean isOfMaster = false;
 	// 子弹是否或者
 	boolean isLive = true;
 
@@ -16,15 +18,20 @@ public class Shot implements Runnable {
 		while (true) {
 			try {
 				// 子弹跑出边框
-				if (y > -4 && this.isLive) {
+				if (y > -4 && this.isLive && isOfMaster) {
 					y-=2;
 					Thread.sleep(15);
 					// 启动子弹线程
-					System.out.println(this.x + "," + this.y);
+					//System.out.println(this.x + "," + this.y);
+				}else if(y < 450  && this.isLive && !isOfMaster){
+					y+=2;
+					//System.out.println(this.x+ ","+this.y);
+					Thread.sleep(15);
 				} else {
 					this.isLive = false;
 					break;
 				}
+
 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
