@@ -182,7 +182,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				// 如果飞机还活则Shot mShot = masterP.ss.get(i);
 				if (etp.isLive) {
 					// 如果没有子弹
-					if (etp.ss.size() < 2) {
+					if (etp.ss.size() < 1) {
 						// 添加子弹
 						Shot s = new Shot(etp.pointX, etp.pointY);
 						// 不是主角的子弹
