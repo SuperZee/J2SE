@@ -28,11 +28,11 @@ public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant
 			int random = (int) (Math.random() * 2);
 			if (random < 1) {
 				System.out.println("this.pointX--");
-				for (int i = 0; i < 5; i++) {
-					this.pointX--;
+				for (int i = 0; i < 30; i++) {
+					this.pointX --;
 				}
 			} else {
-				for (int i = 0; i < 5; i++) {
+				for (int i = 0; i < 30; i++) {
 					this.pointX++;
 				}
 			}

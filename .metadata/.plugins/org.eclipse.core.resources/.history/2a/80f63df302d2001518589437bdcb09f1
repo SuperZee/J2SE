@@ -21,24 +21,20 @@ public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant
 	public void run() {
 		while (true) {
 			try {
-				Thread.sleep(200);
+				Thread.sleep(100);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			int random = (int) (Math.random() * 2);
-			if (random < 1) {
+			if(random < 1){
 				System.out.println("this.pointX--");
-				for (int i = 0; i < 5; i++) {
-					this.pointX--;
-				}
-			} else {
-				for (int i = 0; i < 5; i++) {
-					this.pointX++;
-				}
+				this.pointX-=2;
+			}else{
+				this.pointX+=2;
 			}
 			// ÅÐ¶Ï·É»úÊÇ·ñËÀÍö
-			if (this.isLive == false) {
-				// ÈÃ·É»úËÀÍö£¬ÍË³öÏß³Ì
+			if(this.isLive == false){
+				//ÈÃ·É»úËÀÍö£¬ÍË³öÏß³Ì
 				break;
 			}
 

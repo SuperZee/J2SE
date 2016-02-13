@@ -34,9 +34,6 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		for (int i = 0; i < etsNum; i++) {
 			EnemyAirPlant et = new EnemyAirPlant((i + 1) * 70, 35);
 			ets.add(et);
-			// 启动敌人飞机
-			Thread t = new Thread(et);
-			t.start();
 		}
 		// 初始化三张图片
 		image1 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_1.gif"));
@@ -84,10 +81,12 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		}
 		// 画出炸弹
 		for (int i = 0; i < bombs.size(); i++) {
+
 			// 取出炸弹
 			Bomb b = bombs.get(i);
 			if (b.Life > 6) {
 				g.drawImage(image1, b.pointX, b.pointY, 25, 25, this);
+				System.out.println(bombs.size() + "bombs");
 			} else if (b.Life > 3) {
 				g.drawImage(image2, b.pointX, b.pointY, 25, 25, this);
 			} else {
@@ -171,7 +170,8 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	public void hitAirPlant(Shot s, EnemyAirPlant eap) {
 		// 1.判断s是否与eap发生重合
 		// 击中
-
+		Bomb b = new Bomb(eap.pointX, eap.pointY - 10);
+		bombs.add(b);
 		if ((s.x > eap.pointX - 15) && (s.x < eap.pointX + 15) && (s.y > eap.pointY - 25) && (s.y < eap.pointY)) {
 			System.out.println("击中");
 			// 2.击中后 子弹死亡
@@ -179,9 +179,9 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 3.敌人死亡
 			eap.isLive = false;
 			// 4.创建炸弹对象
-			Bomb b = new Bomb(eap.pointX, eap.pointY - 10);
-			// 加入到炸弹集合  第一个不爆炸
-			bombs.add(b);
+			
+			// 加入到炸弹集合
+			
 
 		}
 	}
