@@ -132,7 +132,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 同时最多只能发射5颗子弹
 			if (this.masterP.ss.size() < 3) {
 				this.masterP.shoot();
- 
+
 			}
 			System.out.println("Shoot");
 		}

@@ -56,13 +56,11 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		// 设置机体颜色
 		g.setColor(masterP.color);
 		// 画机体的三角形
-		if (masterP.isLive) {
-			g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
-			g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX - 15, masterP.pointY + 25);
-			g.drawLine(masterP.pointX - 15, masterP.pointY + 25, masterP.pointX + 15, masterP.pointY + 25);
-			// 画出炮管
-			g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
-		}
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX - 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX - 15, masterP.pointY + 25, masterP.pointX + 15, masterP.pointY + 25);
+		// 画出炮管
+		g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
 		// 画出敌人的飞机
 		for (int i = 0; i < ets.size(); i++) {
 			EnemyAirPlant eap = ets.get(i);
@@ -132,7 +130,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 同时最多只能发射5颗子弹
 			if (this.masterP.ss.size() < 3) {
 				this.masterP.shoot();
- 
+
 			}
 			System.out.println("Shoot");
 		}
@@ -160,10 +158,9 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			// 判断是否击中敌人
-			this.hitEnmTank();
-			// 判断是否击中主角
-			this.hitMyTank();
+			this.hitEnemy();
+
+			// 判断是否击中我
 
 			// 判断是否需要给敌机加入新子弹
 			// 判断子弹是否失效
@@ -199,7 +196,7 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	}
 
 	// 用来判断是否击中敌人飞机
-	public void hitAirPlant(Shot s, AbstractAirPlant eap) {
+	public void hitAirPlant(Shot s, EnemyAirPlant eap) {
 		// 1.判断s是否与eap发生重合
 		// 击中
 
@@ -217,7 +214,26 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 		}
 	}
 
-	public void hitEnmTank() {
+	// 用来判断是否击中主角飞机
+	public void hitAirPlant(Shot s, MasterPlant mp) {
+		// 1.判断s是否与mp发生重合
+		// 击中
+
+		if ((s.x > mp.pointX - 15) && (s.x < mp.pointX + 15) && (s.y > mp.pointY + 25) && (s.y < mp.pointY)) {
+			System.out.println("击中主角");
+			// 2.击中后 子弹死亡
+			s.isLive = false;
+			// 3.主角死亡
+			mp.isLive = false;
+			// 4.创建炸弹对象
+			Bomb b = new Bomb(mp.pointX, mp.pointY - 10);
+			// 加入到炸弹集合 第一个不爆炸
+			bombs.add(b);
+
+		}
+	}
+
+	public void hitEnemy() {
 		// 判断是否击中敌人飞机
 		for (int i = 0; i < masterP.ss.size(); i++) {
 			// 取出子弹
@@ -232,22 +248,6 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 					if (eap.isLive) {
 						this.hitAirPlant(myShot, eap);
 					}
-				}
-			}
-		}
-	}
-
-	public void hitMyTank() {
-		// 取出每一个敌人飞机
-		for (int i = 0; i < ets.size(); i++) {
-			EnemyAirPlant eap = ets.get(i);
-			// 取出每一颗子弹
-			for (int j = 0; j < eap.ss.size(); j++) {
-				// 取出子弹
-				Shot enmShot = eap.ss.get(j);
-				enmShot.isOfMaster = false;
-				if (masterP.isLive) {
-					this.hitAirPlant(enmShot, masterP);
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import java.util.Vector;
 
 public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant, Runnable {
 
+	boolean isLive = true;
 	// 敌人飞机子弹
 	Vector<Shot> ss = new Vector<Shot>();
 	// 敌人添加子弹，在刚刚创建敌人和子弹死亡后创建
@@ -27,11 +28,9 @@ public class EnemyAirPlant extends AbstractAirPlant implements InterfaceAirPlant
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
 			int random = (int) (Math.random() * 2);
 			if (random < 1) {
 				//System.out.println("this.pointX--");
-				
 				for (int i = 0; i < 4; i++) {
 					if (this.pointX > 45) {
 						this.pointX--;
