@@ -1,0 +1,9 @@
+package com.lee.spi_16.airplanegame;
+
+public class Bomb extends AbstractAirPlant {
+	boolean isLive = true;
+	public Bomb(int x, int y) {
+		this.pointX = x;
+		this.pointY = y;
+	}
+}

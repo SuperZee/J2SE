@@ -2,7 +2,9 @@ package com.lee.spi_16.airplanegame;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.dnd.DragGestureEvent;
+import java.awt.Image;
+import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Vector;
@@ -16,6 +18,12 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 	Vector<EnemyAirPlant> ets = new Vector<EnemyAirPlant>();
 	// 定义了敌人飞机数量
 	int etsNum = 3;
+	// 定义炸弹集合
+	Vector<Bomb> bombs = new Vector<Bomb>();
+	// 定义三张爆炸图片
+	Image image1 = null;
+	Image image2 = null;
+	Image image3 = null;
 
 	public MainPanel() {
 
@@ -27,6 +35,10 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			EnemyAirPlant et = new EnemyAirPlant((i + 1) * 70, 35);
 			ets.add(et);
 		}
+		// 初始化三张图片
+		image1 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_1.gif"));
+		image2 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_2.gif"));
+		image3 = Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("/bomb_3.gif"));
 	}
 
 	// 重写父类paint函数
@@ -48,12 +60,12 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 				g.setColor(eap.color);
 				g.drawLine(eap.pointX, eap.pointY, eap.pointX + 15, eap.pointY - 25);
 				g.drawLine(eap.pointX, eap.pointY, eap.pointX - 15, eap.pointY - 25);
-				g.drawLine(eap.pointX - 15, eap.pointY - 25, eap.pointX + 15,
-						eap.pointY - 25);
+				g.drawLine(eap.pointX - 15, eap.pointY - 25, eap.pointX + 15, eap.pointY - 25);
 				// 画炮管
 				g.drawLine(eap.pointX, eap.pointY + 5, eap.pointX, eap.pointY);
 			}
 		}
+
 		// 从ss中取出每一颗子弹，画出来
 		for (int i = 0; i < masterP.ss.size(); i++) {
 			// 判断子弹是否存在 只能画出一颗子弹
@@ -65,6 +77,26 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			// 如果子弹已经到达边缘 就从ss中删除这颗子弹
 			if (!mShot.isLive) {
 				masterP.ss.remove(mShot);
+			}
+		}
+		// 画出炸弹
+		for (int i = 0; i < bombs.size(); i++) {
+
+			// 取出炸弹
+			Bomb b = bombs.get(i);
+			if (b.Life > 6) {
+				g.drawImage(image1, b.pointX, b.pointY, 25, 25, this);
+				System.out.println(bombs.size() + "bombs");
+			} else if (b.Life > 3) {
+				g.drawImage(image2, b.pointX, b.pointY, 25, 25, this);
+			} else {
+				g.drawImage(image3, b.pointX, b.pointY, 25, 25, this);
+			}
+			// 每画一次生命减一
+			b.lifeDown();
+			// 如果生命值为0 就消失
+			if (!b.isLive) {
+				bombs.remove(b);
 			}
 		}
 
@@ -144,6 +176,11 @@ public class MainPanel extends JPanel implements KeyListener, Runnable {
 			s.isLive = false;
 			// 3.敌人死亡
 			eap.isLive = false;
+			// 4.创建炸弹对象
+			Bomb b = new Bomb(eap.pointX, eap.pointY - 10);
+			// 加入到炸弹集合
+			bombs.add(b);
+
 		}
 	}
 

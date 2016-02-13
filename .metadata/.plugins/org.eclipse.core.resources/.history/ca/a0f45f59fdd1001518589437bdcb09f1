@@ -1,0 +1,181 @@
+package com.lee.spi_16.airplanegame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Vector;
+
+import javax.swing.JPanel;
+
+public class MainPanel extends JPanel implements KeyListener, Runnable {
+	// 定义主角飞机
+	MasterPlant masterP;
+	// 定义敌人飞机组 线程安全组
+	Vector<EnemyAirPlant> ets = new Vector<EnemyAirPlant>();
+	// 定义了敌人飞机数量
+	int etsNum = 3;
+	// 定义炸弹集合
+	Vector<Bomb> bombs = new Vector<Bomb>();
+	// 定义三张爆炸图片
+	Image image1 = null;
+	Image image2 = null;
+	Image image3 = null;
+
+	public MainPanel() {
+
+		// 设置主角飞机初始位置 长宽
+		this.setBackground(Color.BLACK);
+		masterP = new MasterPlant(135, 430);
+		// 初始化敌人飞机
+		for (int i = 0; i < etsNum; i++) {
+			EnemyAirPlant et = new EnemyAirPlant((i + 1) * 70, 35);
+			ets.add(et);
+		}
+		// 初始化三张图片
+		image1 = Toolkit.getDefaultToolkit().getImage("/bomb_1.gif");
+		image2 = Toolkit.getDefaultToolkit().getImage("/bomb_2.gif");
+		image3 = Toolkit.getDefaultToolkit().getImage("/bomb_3.gif");
+	}
+
+	// 重写父类paint函数
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		// 设置机体颜色
+		g.setColor(masterP.color);
+		// 画机体的三角形
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX + 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX, masterP.pointY, masterP.pointX - 15, masterP.pointY + 25);
+		g.drawLine(masterP.pointX - 15, masterP.pointY + 25, masterP.pointX + 15, masterP.pointY + 25);
+		// 画出炮管
+		g.drawLine(masterP.pointX, masterP.pointY - 5, masterP.pointX, masterP.pointY);
+		// 画出敌人的飞机
+		for (int i = 0; i < ets.size(); i++) {
+			EnemyAirPlant eap = ets.get(i);
+			if (eap.isLive) {
+				g.setColor(eap.color);
+				g.drawLine(eap.pointX, eap.pointY, eap.pointX + 15, eap.pointY - 25);
+				g.drawLine(eap.pointX, eap.pointY, eap.pointX - 15, eap.pointY - 25);
+				g.drawLine(eap.pointX - 15, eap.pointY - 25, eap.pointX + 15, eap.pointY - 25);
+				// 画炮管
+				g.drawLine(eap.pointX, eap.pointY + 5, eap.pointX, eap.pointY);
+			}
+		}
+		// 画出炸弹
+		for (int i = 0; i<bombs.size();i++){
+			//取出炸弹
+			Bomb b = bombs.get(i);
+			if(b.Life > 6){
+				g.drawImage(image1, b.pointX, b.pointY, 25, 25,this);		
+			}else if (b.Life > 3){
+				g.drawImage(image2, b.pointX, b.pointY, 25, 25, this);
+			}else{
+				g.drawImage(image3, b.pointX, b.pointY, 25, 25, this);
+			}
+			b.lifeDown();
+			if(!b.isLive){
+				
+			}
+		}
+		// 从ss中取出每一颗子弹，画出来
+		for (int i = 0; i < masterP.ss.size(); i++) {
+			// 判断子弹是否存在 只能画出一颗子弹
+			Shot mShot = masterP.ss.get(i);
+			if (mShot != null && mShot.isLive) {
+				// 如果在就创建子弹
+				g.drawRect(mShot.x, mShot.y, 3, 3);
+			}
+			// 如果子弹已经到达边缘 就从ss中删除这颗子弹
+			if (!mShot.isLive) {
+				masterP.ss.remove(mShot);
+			}
+		}
+
+	}
+
+	// 实现键盘监听接口 用户输入左右方向键 飞机可以移动
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			System.out.println("Move Right");
+			masterP.pointX += masterP.speed;
+		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("Move LEFT");
+			masterP.pointX -= masterP.speed;
+		}
+		// 如果按下空格 就可以开火
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			// 同时最多只能发射5颗子弹
+			if (this.masterP.ss.size() < 3) {
+				this.masterP.shoot();
+
+			}
+			System.out.println("Shoot");
+		}
+
+		// 必须重新绘制窗口
+		this.repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			try {
+				Thread.sleep(100);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			// 判断是否击中
+			for (int i = 0; i < masterP.ss.size(); i++) {
+				// 取出子弹
+				Shot myShot = masterP.ss.get(i);
+				// 判断子弹是否活着
+				if (myShot.isLive) {
+					// 取出每个飞机的坐标
+					for (int j = 0; j < ets.size(); j++) {
+						EnemyAirPlant eap = ets.get(j);
+						// 判断飞机是否活着
+						if (eap.isLive) {
+							this.hitAirPlant(myShot, eap);
+						}
+					}
+				}
+			}
+			// 重绘制
+			this.repaint();
+		}
+	}
+
+	// 用来判断是否击中敌人飞机
+	public void hitAirPlant(Shot s, EnemyAirPlant eap) {
+		// 1.判断s是否与eap发生重合
+		// 击中
+		if ((s.x > eap.pointX - 15) && (s.x < eap.pointX + 15) && (s.y > eap.pointY - 25) && (s.y < eap.pointY)) {
+			System.out.println("击中");
+			// 2.击中后 子弹死亡
+			s.isLive = false;
+			// 3.敌人死亡
+			eap.isLive = false;
+			// 4.创建炸弹对象
+			Bomb b = new Bomb(eap.pointX, eap.pointY);
+			// 加入到炸弹集合
+			bombs.add(b);
+
+		}
+	}
+
+}

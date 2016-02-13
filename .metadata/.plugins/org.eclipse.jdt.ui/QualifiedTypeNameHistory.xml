@@ -5,4 +5,25 @@
 <fullyQualifiedTypeName name="com.lee.spi_08.josephus.josephus"/>
 <fullyQualifiedTypeName name="com.lee.spi_08.josephus.CycLink"/>
 <fullyQualifiedTypeName name="com.lee.spi_08.josephus.Josephus"/>
+<fullyQualifiedTypeName name="com.lee.spi_15.tankgame.MyPanle"/>
+<fullyQualifiedTypeName name="com.lee.spi_15.tankgame.Demo"/>
+<fullyQualifiedTypeName name="com.lee.spi_15.tankgame.MyTankGame"/>
+<fullyQualifiedTypeName name="com.lee.spi_15.tankgame.MyPanel"/>
+<fullyQualifiedTypeName name="com.lee.spi_16.airplanegame.AirPlant"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="com.lee.spi_16.airplanegame.AbstractAirPlant"/>
+<fullyQualifiedTypeName name="com.lee.spi_16.airplanegame.InterfaceAirPlant"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="com.lee.spi_16.airplanegame.MasterPlant"/>
+<fullyQualifiedTypeName name="java.awt.Canvas"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyListener"/>
+<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.dnd.DragGestureEvent"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.lee.spi_16.airplanegame.EnemyAirPlant"/>
+<fullyQualifiedTypeName name="java.awt.Image"/>
+<fullyQualifiedTypeName name="java.awt.Toolkit"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,11 @@
+package com.lee.spi_16.airplanegame;
+
+public class Bomb extends AbstractAirPlant {
+	boolean isLive = true;
+
+	// 构造函数 定义坐标(x,y)
+	public Bomb(int x, int y) {
+		this.pointX = x;
+		this.pointY = y;
+	}
+}

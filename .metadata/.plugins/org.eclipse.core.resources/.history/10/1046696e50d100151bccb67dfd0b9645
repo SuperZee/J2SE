@@ -1,9 +1,0 @@
-package com.lee.spi_16.airplanegame;
-
-public class MasterPlant extends AirPlant {
-	@Override
-	public AirPlant createAirPlant() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}
